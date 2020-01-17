@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 public class QueryProcessorTest {
 
@@ -28,6 +29,11 @@ public class QueryProcessorTest {
     @Test
     public void knowsAboutMaths() throws Exception {
         assertThat(queryProcessor.process("420"), containsString("210"));
+    }
+
+    @Test
+    public void shouldFail() throws Exception {
+        fail();
     }
 
 }
