@@ -7,8 +7,8 @@ public class QueryProcessor {
 
     private static Pattern addition = Pattern.compile("what is (\\d+) plus (\\d+)");
     private static Pattern multiply = Pattern.compile("what is (\\d+) multiplied by (\\d+)");
-    private static Pattern largestFour = Pattern.compile("which of the following number is the largest: (\\d+), (\\d+), (\\d+), (\\d+)");
-    private static Pattern largest = Pattern.compile("which of the following number is the largest: (\\d+), (\\d+)");
+    private static Pattern largestFour = Pattern.compile("which of the following numbers is the largest: (\\d+), (\\d+), (\\d+), (\\d+)");
+    private static Pattern largest = Pattern.compile("which of the following numbers is the largest: (\\d+), (\\d+)");
     private static Pattern sqcube = Pattern
             .compile("which of the following number is both a square and a cube: (\\d+), (\\d+)");
 
