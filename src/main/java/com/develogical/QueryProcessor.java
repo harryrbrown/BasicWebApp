@@ -9,6 +9,8 @@ public class QueryProcessor {
     private static Pattern multiply = Pattern.compile("what is (\\d+) multiplied by (\\d+)");
     private static Pattern largestFour = Pattern.compile("which of the following number is the largest: (\\d+), (\\d+), (\\d+), (\\d+)");
     private static Pattern largest = Pattern.compile("which of the following number is the largest: (\\d+), (\\d+)");
+    private static Pattern sqcube = Pattern
+            .compile("which of the following number is both a square and a cube: (\\d+), (\\d+)");
 
     public String process(String query) {
         if (query.toLowerCase().contains("shakespeare")) {
@@ -37,6 +39,13 @@ public class QueryProcessor {
         m = multiply.matcher(query);
         if (m.matches()) {
             return String.valueOf(Integer.parseInt(m.group(1)) * Integer.parseInt(m.group(2)));
+        }
+        m = sqcube.matcher(query);
+        if (m.matches()) {
+            int first = Integer.parseInt(m.group(1));
+            int second = Integer.parseInt(m.group(2));
+
+            return String.valueOf(first);
         }
         return "";
     }
