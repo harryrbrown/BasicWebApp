@@ -31,9 +31,4 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("420"), containsString("210"));
     }
 
-    @Test
-    public void shouldFail() throws Exception {
-        fail();
-    }
-
 }
