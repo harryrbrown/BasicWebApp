@@ -49,7 +49,7 @@ public class QueryProcessor {
             if (isPrime(Integer.parseInt(m.group(1)))) {
                 return String.valueOf(Integer.parseInt(m.group(1)));
             } else {
-                return String.valueOf(Integer.parseInt(m.group(1)));
+                return String.valueOf(Integer.parseInt(m.group(2)));
             }
         }
         m = largestFour.matcher(query);
