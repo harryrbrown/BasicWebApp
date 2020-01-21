@@ -43,7 +43,11 @@ public class WebServer {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       String query = req.getParameter("q");
-      new ApiResponse(new QueryProcessor().process(query)).writeTo(resp);
+      String response = new QueryProcessor().process(query);
+      if (response.equals("")) {
+        return;
+      }
+      new ApiResponse(response).writeTo(resp);
     }
   }
 
