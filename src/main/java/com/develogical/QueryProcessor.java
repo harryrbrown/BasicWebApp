@@ -24,10 +24,16 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("420")) {
             return "... is the sum of two lots of 210";
         }
-        Matcher m = addition.matcher(query);
-        if (m.matches()) {
-            return String.valueOf(Integer.parseInt(m.group(1)) + Integer.parseInt(m.group(2)));
+        if (query.toLowerCase().contains("plus")) {
+            String num1 = query.toLowerCase().split("what is ")[1].split(" ")[0];
+            String num2 = query.toLowerCase().split(" plus ")[1];
+
+            return String.valueOf(Integer.valueOf(num1) + Integer.valueOf(num2));
         }
+        Matcher m = addition.matcher(query);
+//        if (m.matches()) {
+//            return String.valueOf(Integer.parseInt(m.group(1)) + Integer.parseInt(m.group(2)));
+//        }
         m = subtraction.matcher(query);
         if (m.matches()) {
             return String.valueOf(Integer.parseInt(m.group(1)) - Integer.parseInt(m.group(2)));
