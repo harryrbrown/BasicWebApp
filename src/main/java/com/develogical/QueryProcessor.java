@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 public class QueryProcessor {
 
     private static Pattern addition = Pattern.compile("what is (\\d+) plus (\\d+)");
+    private static Pattern multiply = Pattern.compile("what is (\\d+) multiplied by (\\d+)");
     private static Pattern largest = Pattern.compile("which of the following number is the largest: (\\d+), (\\d+)");
 
     public String process(String query) {
@@ -24,6 +25,10 @@ public class QueryProcessor {
         m = largest.matcher(query);
         if (m.matches()) {
             return String.valueOf(Integer.max(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2))));
+        }
+        m = multiply.matcher(query);
+        if (m.matches()) {
+            return String.valueOf(Integer.parseInt(m.group(1)) * Integer.parseInt(m.group(2)));
         }
         return "";
     }
