@@ -7,6 +7,7 @@ public class QueryProcessor {
 
     private static Pattern addition = Pattern.compile("what is (\\d+) plus (\\d+)");
     private static Pattern multiply = Pattern.compile("what is (\\d+) multiplied by (\\d+)");
+    private static Pattern largestFour = Pattern.compile("which of the following number is the largest: (\\d+), (\\d+), (\\d+), (\\d+)");
     private static Pattern largest = Pattern.compile("which of the following number is the largest: (\\d+), (\\d+)");
 
     public String process(String query) {
@@ -21,6 +22,13 @@ public class QueryProcessor {
         Matcher m = addition.matcher(query);
         if (m.matches()) {
             return String.valueOf(Integer.parseInt(m.group(1)) + Integer.parseInt(m.group(2)));
+        }
+        m = largestFour.matcher(query);
+        if (m.matches()) {
+            Integer a_1 = Integer.max(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2)));
+            Integer a_2 = Integer.max(Integer.parseInt(m.group(3)), Integer.parseInt(m.group(4)));
+
+            return String.valueOf(Integer.max(a_1, a_2));
         }
         m = largest.matcher(query);
         if (m.matches()) {
